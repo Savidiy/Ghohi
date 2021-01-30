@@ -11,6 +11,7 @@ public class MouseThirdPersonLook : MonoBehaviour
     [Range(-85f, 85f)][SerializeField] float _xRotationMax = 85f;
     [Range(-85f, 85f)][SerializeField] float _xRotationMin = -10f;
     [Header("Obstacles")]
+    [SerializeField] float _minDistance = 0.5f;
     [SerializeField] float _maxDistance = 4f;
     [SerializeField] float _castSphereRadius = 0.08f;
     [SerializeField] LayerMask _layerMask;
@@ -31,14 +32,14 @@ public class MouseThirdPersonLook : MonoBehaviour
         _lookFrom.LookAt(target);
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             Cursor.lockState = CursorLockMode.None;
                 
         // move object with target
         Vector3 deltaPos = _lookTo.position - _prevLookToPosition;
-        _lookFrom.Translate(deltaPos);
+        _lookFrom.Translate(deltaPos, Space.World);
 
         Vector3 target = _lookTo.position + _offset;
         _lookFrom.LookAt(target);
@@ -59,14 +60,15 @@ public class MouseThirdPersonLook : MonoBehaviour
         Vector3 direction = _lookFrom.position - target;
         direction.Normalize();
         RaycastHit raycastHit;
+        float distance = _maxDistance;
         if (Physics.SphereCast(target, _castSphereRadius, direction, out raycastHit, _maxDistance, _layerMask))
         {
-            _lookFrom.position = target + direction * raycastHit.distance;
+            if (raycastHit.distance > _minDistance)
+                distance = raycastHit.distance;
+            else
+                distance = _minDistance;
         } 
-        else
-        {
-            _lookFrom.position = target + direction * _maxDistance;
-        }
+        _lookFrom.position = target + direction * distance;
 
         // save prev position
         _prevLookToPosition = _lookTo.position;

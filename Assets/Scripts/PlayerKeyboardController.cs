@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class PlayerKeyboardController : MonoBehaviour
 {
-    [SerializeField] float _rotateSpeed = 6f;
-    [SerializeField] GameObject lookFrom;
+    [SerializeField] Transform _target;
+    [SerializeField] Transform _lookFrom;
+    [SerializeField] float _rotateSpeed = 200f;
+    [SerializeField] float _moveSpeed = 1f;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        inputDirection.Normalize();
+        float horizontal = -1 * Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        if (horizontal != 0 || vertical != 0)
+        {
+            Vector3 inputDirection = new Vector3(horizontal, 0f, vertical);
+            inputDirection.Normalize();
 
-        //lookFrom rotation
+            //rotation
+            Vector3 dirLookFrom = _target.position - _lookFrom.position;
+            dirLookFrom.y = 0;
+            Quaternion direction = Quaternion.FromToRotation(inputDirection, dirLookFrom );
+            _target.rotation = Quaternion.RotateTowards(_target.rotation, direction, _rotateSpeed * Time.deltaTime);
 
-        Vector3 lookFromDirection = transform.position - lookFrom.transform.position;
-        Vector3 lookAtPoint = transform.position + lookFromDirection;
-        Vector3 lookAtPointStabilized = new Vector3(lookAtPoint.x, transform.position.y, lookAtPoint.z);
-        //transform.LookAt(lookAtPointStabilized);
-
-        //transform.rotation
-
-
+            //move
+            _target.position = _target.position + _target.forward * _moveSpeed * Time.deltaTime;
+        }
     }
 }
