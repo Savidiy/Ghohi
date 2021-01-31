@@ -32,7 +32,7 @@ public class MouseThirdPersonLook : MonoBehaviour
         _lookFrom.LookAt(target);
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             Cursor.lockState = CursorLockMode.None;
