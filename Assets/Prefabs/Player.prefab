@@ -655,6 +655,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6788588585070295967, guid: b538ba0758b54d2499f10485ca4c823d,
         type: 3}
+      propertyPath: _jumpForce
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788588585070295967, guid: b538ba0758b54d2499f10485ca4c823d,
+        type: 3}
+      propertyPath: _moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788588585070295967, guid: b538ba0758b54d2499f10485ca4c823d,
+        type: 3}
       propertyPath: _rigidbody
       value: 
       objectReference: {fileID: 5741681907339145402}

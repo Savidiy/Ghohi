@@ -7,7 +7,6 @@ public class PlayerKeyboardMove : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] Rigidbody _rigidbody;
-    //[SerializeField] Transform _target;
     [SerializeField] Transform _lookFrom;
     [Header("Move")]
     [SerializeField] float _rotateSpeed = 200f;
@@ -24,7 +23,7 @@ public class PlayerKeyboardMove : MonoBehaviour
 
     void Update()
     {
-        //Jump
+        #region Jump
         if (IsGrounded())
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -38,10 +37,13 @@ public class PlayerKeyboardMove : MonoBehaviour
         {
             _jumpDelayTimer -= Time.deltaTime;
         }
-    }
-    void FixedUpdate()
-    {
-        //Move
+        #endregion
+
+        //}
+        //void FixedUpdate()
+        //{
+
+        #region Move
         float horizontal = -1 * Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (horizontal != 0 || vertical != 0)
@@ -58,6 +60,7 @@ public class PlayerKeyboardMove : MonoBehaviour
             //move
             _rigidbody.position += _rigidbody.transform.forward * _moveSpeed * Time.deltaTime;
         }
+        #endregion
     }
 
     private void OnDrawGizmos()
