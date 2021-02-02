@@ -6,6 +6,7 @@ public class BallSpawner : MonoBehaviour
 {
     [SerializeField] Transform _point;
     [SerializeField] GameObject _ball;
+    [SerializeField] int _layer;
     [SerializeField] float _speed = 10f;
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class BallSpawner : MonoBehaviour
         GameObject ball = Instantiate(_ball);
         ball.transform.position = _point.position;
         ball.transform.rotation = _point.rotation;
+        ball.layer = _layer;
         ball.GetComponent<Rigidbody>().AddForce(ball.transform.forward * _speed, ForceMode.VelocityChange);
         //ball.AddComponent<>();
     }

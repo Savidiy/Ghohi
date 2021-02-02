@@ -8,9 +8,9 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
     int _currentLives = 1;
     [SerializeField] int _maxLives = 1;
     [SerializeField] int _damage = 1;
-    [SerializeField] UnityEvent onSpawn;
-    [SerializeField] UnityEvent onDamage;
-    [SerializeField] UnityEvent onDead;
+    [SerializeField] public UnityEvent onSpawn;
+    [SerializeField] public UnityEvent onDamage;
+    [SerializeField] public UnityEvent onDead;
 
     private void Start()
     {

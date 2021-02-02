@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7470028338822861321}
   - component: {fileID: 7470028338822861327}
   - component: {fileID: 7470028338822861320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4778,7 +4778,7 @@ GameObject:
   - component: {fileID: 2710877343173782890}
   - component: {fileID: 5112630581920376264}
   - component: {fileID: 9161146962084010084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 7470028339813094602}
   - component: {fileID: 7470028339813094606}
   - component: {fileID: 7470028339813094607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
