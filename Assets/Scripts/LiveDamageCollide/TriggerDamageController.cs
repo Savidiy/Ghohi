@@ -22,6 +22,7 @@ public class TriggerDamageController : MonoBehaviour
 
         if (liveController != null && obj2 != null)
         {
+            //obj2.HitMe(liveController.Damage);
             liveController.HitMe(obj2.Damage);
         }
     }

@@ -137,7 +137,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2427402022299178645}
   - component: {fileID: 2427402022299178646}
-  - component: {fileID: 2427402022299178647}
   m_Layer: 14
   m_Name: Mine
   m_TagString: Untagged
@@ -177,20 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &2427402022299178647
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2427402022299178644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2427402022841542892
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +187,7 @@ GameObject:
   - component: {fileID: 2427402022841542893}
   - component: {fileID: 2427402022841542888}
   - component: {fileID: 2427402022841542895}
+  - component: {fileID: 4635526407693916094}
   - component: {fileID: 2427402022841542894}
   - component: {fileID: 2427402022841542891}
   - component: {fileID: 2427402022841542890}
@@ -274,6 +260,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4635526407693916094
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427402022841542892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &2427402022841542894
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -398,6 +398,17 @@ MonoBehaviour:
       - m_Target: {fileID: 81269238057797149}
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2427402022841542891}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
