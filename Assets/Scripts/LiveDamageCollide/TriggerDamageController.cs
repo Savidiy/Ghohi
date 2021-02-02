@@ -6,14 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(ILiveController))]
 [RequireComponent(typeof(Collider))]
 public class TriggerDamageController : MonoBehaviour
-{
-    [SerializeField] LayerMask _obstacles;
-    ILiveController liveController;
+{ 
+    [SerializeField] ILiveController liveController;
 
-    private void Start()
-    {
-        liveController = GetComponent<ILiveController>();
-    }
+    [SerializeField] LayerMask _obstacles;
 
     private void OnTriggerEnter(Collider collider)
     {        

@@ -8,11 +8,13 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
     int _currentLives = 1;
     [SerializeField] int _maxLives = 1;
     [SerializeField] int _damage = 1;
+    [SerializeField] UnityEvent onSpawn;
+    [SerializeField] UnityEvent onDamage;
     [SerializeField] UnityEvent onDead;
 
     private void Start()
     {
-        ResetLives();
+        onSpawn.Invoke();
     }
 
     public int Damage
@@ -27,6 +29,9 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
         if (_currentLives <= 0)
         {
             onDead.Invoke();
+        } else
+        {
+            onDamage.Invoke();
         }
     }
     public void ResetLives()
