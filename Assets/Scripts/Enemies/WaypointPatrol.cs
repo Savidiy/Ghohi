@@ -10,6 +10,7 @@ public class WaypointPatrol : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] GameObject path;
     [SerializeField] PatrolType patrolType;
+    [SerializeField] Transform teleportOnStart;
     int _currentWaypointIndex;
     bool _isIncreaseWaypointIndex = true;
 
@@ -17,8 +18,10 @@ public class WaypointPatrol : MonoBehaviour
     {
         if (path != null && path.transform.childCount > 0)
         {
+
             Vector3 startPoint = path.transform.GetChild(0).position;
-            transform.position = startPoint;
+            if (teleportOnStart)
+                teleportOnStart.position = startPoint;
             navMeshAgent.SetDestination(startPoint);
         }
     }

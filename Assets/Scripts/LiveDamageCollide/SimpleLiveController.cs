@@ -23,7 +23,13 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
         private set { _damage = value; }
     }
 
-    public void GetHit(int incomeDamage)
+    public void KillMe()
+    {
+        _currentLives = 0;
+        onDead.Invoke();
+    }
+
+    public void HitMe(int incomeDamage)
     {
         _currentLives -= incomeDamage;
         if (_currentLives <= 0)

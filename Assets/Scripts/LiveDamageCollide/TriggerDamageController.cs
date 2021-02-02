@@ -7,9 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class TriggerDamageController : MonoBehaviour
 { 
-    [SerializeField] ILiveController liveController;
+    ILiveController liveController;
 
-    [SerializeField] LayerMask _obstacles;
+    private void Start()
+    {
+        liveController = GetComponent<ILiveController>();
+        if (liveController == null)
+            Debug.LogError($"{name} can't find ILiveController");
+    }
 
     private void OnTriggerEnter(Collider collider)
     {        
@@ -17,19 +22,7 @@ public class TriggerDamageController : MonoBehaviour
 
         if (liveController != null && obj2 != null)
         {
-            liveController.GetHit(obj2.Damage);
-        }
-
-        int mask = _obstacles.value;
-        int bit = 1 << collider.gameObject.layer;
-        bool result = (mask & bit) > 0; // correct layer
-        //Debug.Log($"mask = {Convert.ToString(mask, toBase: 2)}, bit = {Convert.ToString(bit, toBase: 2)}, result = {result}");
-
-        if (result)
-        {
-            liveController.GetHit(liveController.GetCurrentLives());
+            liveController.HitMe(obj2.Damage);
         }
     }
-
-
 }

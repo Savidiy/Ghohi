@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 5740425803969015969}
   - component: {fileID: 5740425803969015982}
   - component: {fileID: 5741681907339145402}
+  - component: {fileID: 5545222925548845152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -523,6 +524,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &5545222925548845152
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740425803969015983}
+  m_Enabled: 1
 --- !u!1 &7444747069711789427
 GameObject:
   m_ObjectHideFlags: 0

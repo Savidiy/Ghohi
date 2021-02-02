@@ -4777,6 +4777,7 @@ GameObject:
   - component: {fileID: 1921444872142482675}
   - component: {fileID: 2710877343173782890}
   - component: {fileID: 5112630581920376264}
+  - component: {fileID: 9161146962084010084}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -4843,6 +4844,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLives: 1
   _damage: 1
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
   onDead:
     m_PersistentCalls:
       m_Calls:
@@ -4902,9 +4909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f6a70fc7aaa9f4e9422803969fc248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacles:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &5112630581920376264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,6 +4923,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyTarget: {fileID: 7470028339526335514}
   _particleSystem: {fileID: 7470028338822861327}
+--- !u!114 &9161146962084010084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470028339526335514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0446bda58daff4b9db62de17c02b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 256
+  onTiggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1921444872142482675}
+        m_MethodName: KillMe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7470028339813094603
 GameObject:
   m_ObjectHideFlags: 0
