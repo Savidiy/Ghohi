@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayRandomSound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip[] _clips;   
+    public void Play()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int index = Random.Range(0, _clips.Length);
+        _audioSource.clip = _clips[index];
+        _audioSource.Play();
     }
 }

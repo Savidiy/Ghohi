@@ -54,6 +54,10 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
     {
         Destroy(obj);
     }
+    public void DestroyObjectAfter3Sec(GameObject obj)
+    {
+        Destroy(obj, 3f);
+    }
 
     public int GetCurrentLives()
     {
