@@ -31,6 +31,7 @@ public class CounterTextUpdate : MonoBehaviour
         if(_isStarted && _current >= _target)
         {
             onTargetAchieved.Invoke();
+            _isStarted = false;
         }
     }
 

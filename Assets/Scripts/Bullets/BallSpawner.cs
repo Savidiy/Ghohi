@@ -6,6 +6,7 @@ public class BallSpawner : MonoBehaviour
 {
     [SerializeField] Transform _point;
     [SerializeField] GameObject _ball;
+    [SerializeField] Transform _parent;
     [SerializeField] int _layer;
     [SerializeField] float _speed = 10f;
 
@@ -20,7 +21,7 @@ public class BallSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject ball = Instantiate(_ball);
+        GameObject ball = Instantiate(_ball, _parent);
         ball.transform.position = _point.position;
         ball.transform.rotation = _point.rotation;
         ball.layer = _layer;

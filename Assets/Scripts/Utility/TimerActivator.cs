@@ -6,8 +6,14 @@ using UnityEngine.Events;
 public class TimerActivator : MonoBehaviour
 {
     [SerializeField] float _delay;
+    [SerializeField] UnityEvent _onStart;
     [SerializeField] UnityEvent _onTime;
     float _timer = 0;
+
+    private void Start()
+    {
+        _onStart.Invoke();
+    }
 
     void Update()
     {
