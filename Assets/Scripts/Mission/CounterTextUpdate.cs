@@ -8,6 +8,7 @@ public class CounterTextUpdate : MonoBehaviour
 {
     [SerializeField] int _target;
     // [SerializeField] UnityEvent onAdded;
+    [SerializeField] UnityEvent onStart;
     [SerializeField] UnityEvent onTargetAchieved;
     [SerializeField] bool _isStarted;
     [SerializeField] string template;
@@ -15,12 +16,16 @@ public class CounterTextUpdate : MonoBehaviour
 
     int _current = 0;
     public int Current { get { return _current; } }
+    public int Target { get { return _target; } }
 
     private void Start()
     {
         UpdateText();
+        if (_isStarted)
+        {
+            onStart.Invoke();
+        }
     }
-
     void Update()
     {
         if(_isStarted && _current >= _target)
@@ -41,7 +46,6 @@ public class CounterTextUpdate : MonoBehaviour
             Debug.LogWarning("Add Counter then it stopped.");
         }
     }
-
     public void AddOne()
     {
         if (_isStarted)
@@ -68,9 +72,13 @@ public class CounterTextUpdate : MonoBehaviour
     public void StartCounter()
     {
         _isStarted = true;
+        onStart.Invoke();
+        
     }
     public void StopCounter()
     {
         _isStarted = false;
     }
+
+
 }

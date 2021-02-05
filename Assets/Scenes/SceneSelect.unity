@@ -214,24 +214,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38657940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &65880320 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5246390866844383743, guid: 5c7d0e5a58cf0674eb8af833610c3bb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1620637603}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &65880321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65880320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 616ee4af6d0ffcf46b88f191eb1d75be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &117137002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4743,7 +4725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 65880321}
+      objectReference: {fileID: 1620637605}
     - target: {fileID: 1225728460678373216, guid: 5c7d0e5a58cf0674eb8af833610c3bb4,
         type: 3}
       propertyPath: _onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4832,6 +4814,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1620637603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620637605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1235939842173761222, guid: 5c7d0e5a58cf0674eb8af833610c3bb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1620637603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616ee4af6d0ffcf46b88f191eb1d75be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1662636663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6640031918978122787, guid: f83ddc7c7bbd18b4e94f14305f3a081a,

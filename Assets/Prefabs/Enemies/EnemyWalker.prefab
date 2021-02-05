@@ -103,9 +103,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -138,7 +138,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 824753146}
   _transform: {fileID: 6171264706067023814}
-  _seeDistance: 10
+  _seeDistance: 6
   _seeObsacles:
     serializedVersion: 2
     m_Bits: 256
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 3582127965007667606}
   _clips:
-  - {fileID: 8300000, guid: 2ef21108b30fa564d83f3d7a4124b9f3, type: 3}
+  - {fileID: 8300000, guid: 2285ccbc8dcdd414f93c71fb3b64ca7a, type: 3}
 --- !u!1 &5622612134757800201
 GameObject:
   m_ObjectHideFlags: 0

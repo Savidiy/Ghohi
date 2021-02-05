@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject _enemy;
     [SerializeField] GameObject _point1;
     [SerializeField] GameObject _point2;
+    [SerializeField] float _firstDelay = 0;
     [SerializeField] float _period = 2;
     [SerializeField] int _spawnLimit = 1;
     [SerializeField] bool _isWorking = true;
@@ -16,6 +16,11 @@ public class Spawner : MonoBehaviour
 
     float _timer = 0;
     float _spawnAmount = 0;
+
+    private void Start()
+    {
+        _timer = _period - _firstDelay;
+    }
 
     void Update()
     {
@@ -53,7 +58,10 @@ public class Spawner : MonoBehaviour
         if (s != null)
             s.onDead.AddListener(_infoTarget.AddOne);
     }
-
+    public void SetSpawnLimit(int spawnLimit)
+    {
+        _spawnLimit = spawnLimit;
+    }
     public void StartSpawn() 
     {
         _isWorking = true;
