@@ -20,8 +20,8 @@ public class MoveToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //float distance = (_player.transform.position - _transform.position).magnitude;
-        //if (distance < _seeDistance)
+        float distance = (_player.transform.position - _transform.position).magnitude;
+        if (distance < _seeDistance)
         {
             Vector3 origin = _transform.position + Vector3.up;
             Vector3 direction = _player.transform.position - _transform.position;

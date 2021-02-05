@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 824753146}
   _transform: {fileID: 6171264706067023814}
-  _seeDistance: 6
+  _seeDistance: 13
   _seeObsacles:
     serializedVersion: 2
     m_Bits: 256
