@@ -24,8 +24,11 @@ public class MouseThirdPersonLook : MonoBehaviour
 
     void Start()
     {
-        if(_lockCursorOnStart)
+        if (_lockCursorOnStart)
+        {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
         Vector3 target = _lookTo.position + _offset;
         _prevLookToPosition = _lookTo.position;
@@ -35,7 +38,10 @@ public class MouseThirdPersonLook : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.None;
+        }
                 
         // move object with target
         Vector3 deltaPos = _lookTo.position - _prevLookToPosition;

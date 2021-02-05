@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
-public class KeyDownToReloadScene : MonoBehaviour
+public class KeyDownToEvent : MonoBehaviour
 {
     [SerializeField] KeyCode keyCode;
+    [SerializeField] UnityEvent onKeyDown;
     void Update()
     {
         if (Input.GetKeyDown(keyCode))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            onKeyDown.Invoke();
         }
     }
 }
+
