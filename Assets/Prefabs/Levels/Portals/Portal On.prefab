@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5246390865881989994}
   m_Layer: 8
-  m_Name: Portal
+  m_Name: Portal On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 5246390866844383619}
   - component: {fileID: 5246390866844383616}
   - component: {fileID: 5246390866844383617}
+  - component: {fileID: 1225728460678373216}
   m_Layer: 8
   m_Name: Portal Box
   m_TagString: Untagged
@@ -406,3 +407,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1225728460678373216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246390866844383743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e79e423e0d823428721acc41a7b568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _mustCheckTag: 1
+  _checkedTag: Player
