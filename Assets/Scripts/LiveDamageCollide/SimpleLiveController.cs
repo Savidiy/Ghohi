@@ -14,6 +14,7 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
 
     private void Start()
     {
+        _currentLives = _maxLives;
         onSpawn.Invoke();
     }
 
@@ -37,7 +38,8 @@ public class SimpleLiveController : MonoBehaviour, ILiveController
             onDead.Invoke();
         } else
         {
-            onDamage.Invoke();
+            if (incomeDamage > 0)
+                onDamage.Invoke();
         }
     }
     public void ResetLives()
