@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6788588585070295964}
   - component: {fileID: 6788588585070295967}
-  m_Layer: 0
-  m_Name: Move
+  m_Layer: 12
+  m_Name: MoveJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 0}
   _lookFrom: {fileID: 0}
   _rotateSpeed: 600
-  _moveSpeed: 6
-  _jumpForce: 200
+  _moveSpeed: 5
+  _jumpForce: 3.5
   _jumpDelay: 0.1
   _sphereOffset: {x: 0, y: -0.93, z: 0}
   _sphereRadius: 0.18

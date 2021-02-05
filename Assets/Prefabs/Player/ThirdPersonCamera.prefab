@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7770659663884284964}
   - component: {fileID: 7770659663884284967}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ThirdPersonCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,11 +48,11 @@ MonoBehaviour:
   _xRotationMax: 85
   _xRotationMin: -85
   _minDistance: 1
-  _maxDistance: 4
+  _maxDistance: 5
   _castSphereRadius: 0.08
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
   _mouseSensitivity: 2
-  _offset: {x: 0, y: 0.5, z: 0}
+  _offset: {x: 0, y: 1, z: 0}
   _lockCursorOnStart: 1
