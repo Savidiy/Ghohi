@@ -7,10 +7,10 @@ public class SceneProvider : MonoBehaviour
 {
     public void LoadSceneSingle(string sceneName)
     {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        SceneSwitcher.Instance.SwitchToScene(sceneName);
     }
     public void ReloadThisScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneSwitcher.Instance.SwitchToScene(SceneManager.GetActiveScene().name);
     }
 }
