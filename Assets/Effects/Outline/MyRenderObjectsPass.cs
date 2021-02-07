@@ -11,6 +11,7 @@ public class MyRenderObjectsPass : ScriptableRenderPass
     private FilteringSettings _filteringSettings;
     private RenderStateBlock _renderStateBlock;
     private Material _overrideMaterial;
+    private RenderTargetIdentifier _depth;
 
     public MyRenderObjectsPass(RenderTargetHandle destination, int layerMask, Material overrideMaterial)
     {
@@ -23,7 +24,7 @@ public class MyRenderObjectsPass : ScriptableRenderPass
     public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
     {
         cmd.GetTemporaryRT(_destination.id, cameraTextureDescriptor);
-        ConfigureTarget(_destination.Identifier());
+        ConfigureTarget(_destination.Identifier(), _depth);
         ConfigureClear(ClearFlag.All, Color.clear);
     }
 
@@ -35,4 +36,8 @@ public class MyRenderObjectsPass : ScriptableRenderPass
         context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings);
     }
 
+    public void SetDepthTexture(RenderTargetIdentifier depth)
+    {
+        _depth = depth;
+    }
 }
