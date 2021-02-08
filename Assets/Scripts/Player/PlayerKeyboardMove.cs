@@ -20,6 +20,9 @@ public class PlayerKeyboardMove : MonoBehaviour
     [SerializeField] LayerMask _groundLayerMask;
 
     float _jumpDelayTimer;
+    bool _doJump;
+    float _horizontal = 0;
+    float _vertical = 0;
 
     void Update()
     {
@@ -28,9 +31,7 @@ public class PlayerKeyboardMove : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Vector3 force = Vector3.up * _jumpForce;
-                _rigidbody.AddForce(force, ForceMode.VelocityChange);
-                _jumpDelayTimer = _jumpDelay;
+                _doJump = true;                
             }
         }
         else
@@ -39,27 +40,46 @@ public class PlayerKeyboardMove : MonoBehaviour
         }
         #endregion
 
-        //}
-        //void FixedUpdate()
-        //{
 
         #region Move
-        float horizontal = -1 * Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        if (horizontal != 0 || vertical != 0)
-        {            
-            Vector3 inputDirection = new Vector3(horizontal, 0f, vertical);
+        _horizontal = -1 * Input.GetAxis("Horizontal");
+        _vertical = Input.GetAxis("Vertical");
+        
+        #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        #region Jump
+        if (_doJump)
+        {
+            Vector3 force = Vector3.up * _jumpForce;
+            _rigidbody.AddForce(force, ForceMode.VelocityChange);
+            _jumpDelayTimer = _jumpDelay;
+            _doJump = false;
+        }
+        #endregion
+
+        #region Move
+        if (_horizontal != 0 || _vertical != 0)
+        {
+            Vector3 inputDirection = new Vector3(_horizontal, 0f, _vertical);
             inputDirection.Normalize();
 
             //rotation
             Vector3 dirLookFrom = _rigidbody.position - _lookFrom.position;
             dirLookFrom.y = 0;
-            Quaternion direction = Quaternion.FromToRotation(inputDirection, dirLookFrom );
-            _rigidbody.rotation = Quaternion.RotateTowards(_rigidbody.rotation, direction, _rotateSpeed * Time.deltaTime);
+            Quaternion direction = Quaternion.FromToRotation(inputDirection, dirLookFrom);
+            _rigidbody.rotation = Quaternion.RotateTowards(_rigidbody.rotation, direction, _rotateSpeed * Time.fixedDeltaTime);
 
             //move
-            _rigidbody.position += _rigidbody.transform.forward * _moveSpeed * Time.deltaTime;
+            _rigidbody.position += _rigidbody.transform.forward * _moveSpeed * Time.fixedDeltaTime;
         }
+        else
+        {
+            _rigidbody.position += Vector3.zero;
+        }
+
         #endregion
     }
 

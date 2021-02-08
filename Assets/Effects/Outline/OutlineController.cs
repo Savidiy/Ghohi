@@ -2,23 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutlineController : MonoBehaviour
+public class OutlineController : MonoBehaviour, ISelectController
 {
     [SerializeField] int _outlineLayer;
     [SerializeField] int _defaultLayer;
     [SerializeField] GameObject _target;
+    [SerializeField]
+    [RequireInterface(typeof(IDoAction))]
+    private Object _action;
+    private IDoAction Action => _action as IDoAction;
 
-    public void OutlineOn()
+    public void SelectOn()
     {
-        //Debug.Log("Outline ON");
-        _target.layer = _outlineLayer;
+        if (_target != null)
+            _target.layer = _outlineLayer;
     }
 
-    public void OutlineOff()
+    public void SelectOff()
     {
-        //Debug.Log("Outline OFF");
-        _target.layer = _defaultLayer;
+        if (_target != null)
+            _target.layer = _defaultLayer;
     }
-    
 
+    public void DoAction()
+    {
+        if (Action == null)
+            Debug.LogError("There is not _doAction object");
+        else
+            Action.DoAction();
+    }
 }
