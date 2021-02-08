@@ -4,25 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CameraRaycastOutline : MonoBehaviour
 {
-    private Camera _camera;
-    [SerializeField] RectTransform _UItarget;
-    [SerializeField] LayerMask _layerMask;
+    [SerializeField] CameraAimRaycast _raycaster;
     OutlineController _currentOutline;
-
-    private void Start()
-    {
-        _camera = Camera.main;
-    }
-
 
     void Update()
     {       
-        Vector3 aimTo = _UItarget.position;
-        Ray ray = _camera.ScreenPointToRay(aimTo);
-
         bool isFindedOutline = false;
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, _camera.farClipPlane, _layerMask))
+        if (_raycaster.AimRaycast(out RaycastHit hitInfo))
         {
             //Debug.Log($"Outline raycast hit {hitInfo.collider.gameObject.name}.");
             var oc = hitInfo.collider.GetComponent<OutlineController>();

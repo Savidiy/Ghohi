@@ -107,7 +107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Esc - return to level select
+  m_Text: Esc - Return to level select
 --- !u!114 &1983258661277849294
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,13 +10,13 @@ public class OutlineController : MonoBehaviour
 
     public void OutlineOn()
     {
-        Debug.Log("Outline ON");
+        //Debug.Log("Outline ON");
         _target.layer = _outlineLayer;
     }
 
     public void OutlineOff()
     {
-        Debug.Log("Outline OFF");
+        //Debug.Log("Outline OFF");
         _target.layer = _defaultLayer;
     }
     

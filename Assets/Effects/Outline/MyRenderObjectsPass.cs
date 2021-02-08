@@ -33,7 +33,7 @@ public class MyRenderObjectsPass : ScriptableRenderPass
         SortingCriteria sortingCriteria = renderingData.cameraData.defaultOpaqueSortFlags;
         DrawingSettings drawingSettings = CreateDrawingSettings(_shaderTagIdList, ref renderingData, sortingCriteria);
         drawingSettings.overrideMaterial = _overrideMaterial;
-        context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings);
+        context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings, ref _renderStateBlock);
     }
 
     public void SetDepthTexture(RenderTargetIdentifier depth)

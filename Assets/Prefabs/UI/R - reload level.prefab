@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32ef000292c2b84dbf42cb2ceed32b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 114
+  keyCode: 121
   onKeyDown:
     m_PersistentCalls:
       m_Calls:
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: R - reload level
+  m_Text: Y - Reload level
 --- !u!114 &1473032697173977705
 MonoBehaviour:
   m_ObjectHideFlags: 0
