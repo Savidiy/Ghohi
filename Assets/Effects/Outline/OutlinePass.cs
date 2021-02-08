@@ -13,12 +13,14 @@ public class OutlinePass : ScriptableRenderPass
     {
         _material = material;
     }
-
+        
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
         var cmd = CommandBufferPool.Get(_profilerTag);
 
+#pragma warning disable CS0618 // Type or member is obsolete
         using (new ProfilingSample(cmd, _profilerTag))
+#pragma warning restore CS0618 // Type or member is obsolete
         {
             var mesh = RenderingUtils.fullscreenMesh;
             cmd.DrawMesh(mesh, Matrix4x4.identity, _material, 0, 0);

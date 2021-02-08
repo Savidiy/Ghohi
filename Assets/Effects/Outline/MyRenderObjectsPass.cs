@@ -25,7 +25,7 @@ public class MyRenderObjectsPass : ScriptableRenderPass
     {
         cmd.GetTemporaryRT(_destination.id, cameraTextureDescriptor);
         ConfigureTarget(_destination.Identifier(), _depth);
-        ConfigureClear(ClearFlag.All, Color.clear);
+        ConfigureClear(ClearFlag.Color, Color.clear);
     }
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
