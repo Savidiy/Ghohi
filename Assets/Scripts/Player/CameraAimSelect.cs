@@ -5,9 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 public class CameraAimSelect : MonoBehaviour
 {
+    [Header("Select Event")]
     [SerializeField] CameraAimRaycast _raycaster;
     [SerializeField] UnityEvent _onChangeSelect;
     [SerializeField] UnityEvent _onSelectOff;
+    [Header("Select Distance")]
+    [SerializeField] Transform _observer;
+    [SerializeField] float _maxDistance = 1f;
+
     ISelectController _currentSelect;
 
     void Update()
@@ -17,15 +22,21 @@ public class CameraAimSelect : MonoBehaviour
         if (_raycaster.AimRaycast(out RaycastHit hitInfo))
         {
             //Debug.Log($"Outline raycast hit {hitInfo.collider.gameObject.name}.");
-            var oc = hitInfo.collider.GetComponent<ISelectController>();
-            if (oc != null)
-            {
-                //Debug.Log($"Outline raycast hit OutlineController.");
-                isFindedOutline = true;
 
-                if (oc != _currentSelect)
+            //check distance
+            if (_observer == null || (_observer != null && Vector3.Magnitude(_observer.position - hitInfo.collider.transform.position) <= _maxDistance))
+            {
+                var oc = hitInfo.collider.GetComponent<ISelectController>();
+                //check select
+                if (oc != null)
                 {
-                    ChangeSelect(oc);
+                    //Debug.Log($"Outline raycast hit OutlineController.");
+                    isFindedOutline = true;
+                    //check changed selected object
+                    if (oc != _currentSelect)
+                    {
+                        ChangeSelect(oc);
+                    }
                 }
             }
         }
